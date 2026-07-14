@@ -13,10 +13,14 @@ const weeklyData = [
 const maxPv = Math.max(...weeklyData.map(d => d.pv))
 const maxUv = Math.max(...weeklyData.map(d => d.uv))
 
-const colors = [
-  { pv: ['#4f6ef7', '#8196fa'], uv: ['#34d399', '#6ee7b7'] },
-  { pv: ['#a78bfa', '#c4b5fd'], uv: ['#22d3ee', '#67e8f9'] },
-  { pv: ['#f472b6', '#f9a8d4'], uv: ['#f5b342', '#fcd34d'] },
+const barColors = [
+  { pv: '#6366f1', pvLight: '#818cf8', uv: '#06b6d4', uvLight: '#22d3ee' },
+  { pv: '#a855f7', pvLight: '#c084fc', uv: '#10b981', uvLight: '#34d399' },
+  { pv: '#ec4899', pvLight: '#f472b6', uv: '#f59e0b', uvLight: '#fbbf24' },
+  { pv: '#6366f1', pvLight: '#818cf8', uv: '#06b6d4', uvLight: '#22d3ee' },
+  { pv: '#a855f7', pvLight: '#c084fc', uv: '#10b981', uvLight: '#34d399' },
+  { pv: '#ec4899', pvLight: '#f472b6', uv: '#f59e0b', uvLight: '#fbbf24' },
+  { pv: '#6366f1', pvLight: '#818cf8', uv: '#06b6d4', uvLight: '#22d3ee' },
 ]
 
 const TrendChart: React.FC = () => {
@@ -26,11 +30,11 @@ const TrendChart: React.FC = () => {
         <span className="chart-card-title">📈 本周访问趋势</span>
         <div className="chart-card-legend">
           <div className="legend-item">
-            <span className="legend-dot" style={{ background: '#4f6ef7' }} />
+            <span className="legend-dot" style={{ background: 'linear-gradient(135deg, #6366f1, #818cf8)' }} />
             访问量 (PV)
           </div>
           <div className="legend-item">
-            <span className="legend-dot" style={{ background: '#34d399' }} />
+            <span className="legend-dot" style={{ background: 'linear-gradient(135deg, #06b6d4, #22d3ee)' }} />
             独立访客 (UV)
           </div>
         </div>
@@ -43,8 +47,8 @@ const TrendChart: React.FC = () => {
                 className="chart-bar"
                 style={{
                   height: `${(d.pv / maxPv) * 100}%`,
-                  background: `linear-gradient(180deg, ${colors[i % 3].pv[0]}, ${colors[i % 3].pv[1]})`,
-                  boxShadow: `0 2px 6px ${colors[i % 3].pv[0]}40`,
+                  background: `linear-gradient(180deg, ${barColors[i].pvLight}, ${barColors[i].pv})`,
+                  boxShadow: `0 0 12px ${barColors[i].pv}60, 0 4px 12px rgba(0,0,0,0.2)`,
                 }}
                 title={`PV: ${d.pv}`}
               />
@@ -52,8 +56,8 @@ const TrendChart: React.FC = () => {
                 className="chart-bar"
                 style={{
                   height: `${(d.uv / maxUv) * 100}%`,
-                  background: `linear-gradient(180deg, ${colors[i % 3].uv[0]}, ${colors[i % 3].uv[1]})`,
-                  boxShadow: `0 2px 6px ${colors[i % 3].uv[0]}40`,
+                  background: `linear-gradient(180deg, ${barColors[i].uvLight}, ${barColors[i].uv})`,
+                  boxShadow: `0 0 12px ${barColors[i].uv}60, 0 4px 12px rgba(0,0,0,0.2)`,
                 }}
                 title={`UV: ${d.uv}`}
               />

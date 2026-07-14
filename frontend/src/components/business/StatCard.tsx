@@ -16,15 +16,17 @@ const StatCard: React.FC<StatCardProps> = ({ icon, label, value, trend, color })
       className="stat-card"
       style={{
         '--stat-color': color,
-        '--stat-bg': `${color}18`,
+        '--stat-color-glow': `${color}60`,
+        '--stat-bg': `${color}15`,
       } as React.CSSProperties}
     >
       <div className="stat-card-top">
         <div
           className="stat-card-icon"
           style={{
-            background: `linear-gradient(135deg, ${color}20, ${color}08)`,
+            background: `linear-gradient(135deg, ${color}25, ${color}08)`,
             color: color,
+            boxShadow: `0 0 20px ${color}30`,
           }}
         >
           {icon}

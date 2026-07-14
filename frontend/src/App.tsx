@@ -1,20 +1,12 @@
 import React from 'react'
-import Header from './components/layout/Header'
-import Sidebar from './components/layout/Sidebar'
-import Dashboard from './pages/Dashboard'
-import './styles/layout.css'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from '@/routes'
 
 const App: React.FC = () => {
   return (
-    <div className="app-container">
-      <Header />
-      <div className="app-body">
-        <Sidebar />
-        <main className="app-content">
-          <Dashboard />
-        </main>
-      </div>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
