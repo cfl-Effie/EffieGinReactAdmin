@@ -20,12 +20,12 @@
   ## 📸 系统截图
 
   ### 仪表盘
-  ![仪表盘]()
+  ![仪表盘](screenshots/dashboard.png)
 
   *银河科技主题 · 玻璃拟态卡片 · Recharts 动态图表 · 流星粒子特效*
 
   ### 用户管理
-  ![用户管理]()
+  ![用户管理](screenshots/users.png)
 
   *ProTable 通用表格 · ProSearch 搜索栏 · Mock 数据*
 
